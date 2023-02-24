@@ -11,6 +11,10 @@ import generalRoutes from './routes/general.js';
 import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 
+// Data imports
+import User from "./models/User.js";
+import { dataUser } from './data/index.js';
+
 // Configuration
 const app = express();
 dotenv.config();
@@ -35,6 +39,8 @@ mongoose.connect(process.env.MONGO_URL);
 mongoose.connection
     .on("open", () => {
         console.log("Connected to MongoDB")
+        // inital data import
+        // User.insertMany(dataUser);
     })
     .on("close", () => console.log("Disconnected from MongoDB"))
     .on("error", () => console.log(err.message));
