@@ -8,7 +8,7 @@ import Header from "components/Header";
 const Customers = () => {
     const theme = useTheme();
     const { data, isLoading } = useGetCustomersQuery();
-    console.log(data);
+
     const columns = [
         {
             field: "_id",
