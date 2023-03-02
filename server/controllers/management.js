@@ -17,10 +17,10 @@ export const getUserPerformance = async (req, res) => {
         const { id } = req.params;
 
         const userWithStats = await User.aggregate([
-            { $match: { _id: new mongoose.Types.ObjectId(id) }},
+            { $match: { _id: new mongoose.Types.ObjectId(id) } },
             {
                 $lookup: {
-                    from: "affliatestats",
+                    from: "affiliatestats",
                     localField: "_id",
                     foreignField: "userId",
                     as: "affiliateStats"
